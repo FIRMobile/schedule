@@ -11,7 +11,7 @@ const persistConfig = {
   storage,
   key: 'root',
   stateReconciler: autoMergeLevel2,
-  whitelist: ['auth', 'app', 'statements', 'notifications','tasks'],
+  whitelist: ['app'],
 };
 
 let enhacers;
