@@ -8,7 +8,9 @@ export default connect(
   
   }),
   dispatch => ({
-
-
+    onOpenMain:()=>{
+        dispatch(searchReducer.openMain());
+        console.log('-');
+      }   
   }),
-)(MainScreen);
+)(SearchScreen);

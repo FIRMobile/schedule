@@ -8,7 +8,10 @@ export default connect(
   
   }),
   dispatch => ({
-
+    onOpenSearch: ()=>{
+      dispatch(mainReducer.openSeach());
+      console.log('+');
+    }
 
   }),
 )(MainScreen);
