@@ -1,4 +1,4 @@
-package com.schedulespb;
+package com.schedule;
 
 import android.app.Application;
 

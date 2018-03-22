@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './src/App';
+import App from './App';
 
-AppRegistry.registerComponent('ScheduleSPb', () => App);
+AppRegistry.registerComponent('schedule', () => App);
