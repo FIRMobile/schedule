@@ -1,14 +1,45 @@
 import React from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+  Platform,
+  TextInput,
+} from 'react-native';
 import { Field, reduxForm } from 'redux-form'
+import { Toolbar } from 'react-native-material-ui';
+import ToolBar from './MyView/ToolBar'
+import GroupElement from './MyView/GroupElement'
 
 export default class MainScreen extends React.Component {
   render () {
     return (
-      <View style={styles.container}>
-        <Text onPress={() => this.props.onOpenSearch()}>
-          Programm Main
-        </Text>
+      <View>
+        <Toolbar
+          centerElement="Поиск группы"
+          searchable={{
+            autoFocus: true,
+            placeholder: 'Search',
+          }}
+        />
+    
+        <ScrollView>
+          <View style={{flexDirection: 'row', flex: 1}}>
+            <View>
+              <Text style={{color: '#000', padding: 5}}>ФКТИ</Text>
+            </View>
+            <View style={{flex: 10}}>
+              <GroupElement value={'1111'}/>
+              <GroupElement value={'1234'}/>
+              <GroupElement value={'2341'}/>
+              <GroupElement value={'3324'}/>
+            </View>
+          </View>
+        </ScrollView>
+    
       </View>
     )
   }
@@ -17,55 +48,52 @@ export default class MainScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
+    backgroundColor: '#f9fafb',
+    justifyContent: 'flex-start',
+  },
+  ToolBarActionTitle: {
     alignItems: 'center',
-    backgroundColor: '#bfd8ff'
+    fontSize: 16,
+    color: '#000',
+    fontWeight: 'bold',
   },
-  logo: {
-    height: 45,
-    marginBottom: 25
-  },
-  containerLogIn: {
-    justifyContent: 'center',
+  viewToolBar: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
     alignItems: 'center',
-    height: 260,
-    width: 280,
-    backgroundColor: '#eaf2ff',
-    borderRadius: 4
-  },
-  header: {
-    fontSize: 18,
-    marginBottom: 25,
-    color: '#2368b8'
-  },
-  textInput: {
-    alignSelf: 'stretch',
-    borderWidth: 1,
-    borderRadius: 2,
+    height: Platform.OS === 'ios' ? 65 : 50,
+    paddingTop: Platform.OS === 'ios' ? 15 : 0,
+    paddingLeft: 8,
+    paddingRight: 8,
+    backgroundColor: '#f9fafb',
+    borderWidth: 0.5,
     borderColor: '#888',
-    fontSize: 14,
-    padding: 4,
-    marginBottom: 10,
-    height: 40,
-    marginHorizontal: 20,
-    backgroundColor: '#fff'
   },
-  btn: {
-    alignSelf: 'stretch',
+  ToolBarActionText: {
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#3787ff',
-    marginBottom: 10,
-    marginTop: 20,
-    marginHorizontal: 20,
-    height: 40,
-    borderRadius: 2,
-    flexDirection: 'row'
-  },
-  btnText: {
     fontSize: 14,
-    color: '#fff',
-    fontWeight: 'bold'
-  }
-})
+    color: '#000',
+  },
+  masterItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    borderColor: '#888',
+    marginBottom: 2,
+    borderBottomWidth: 0.5,
+  },
+  masterName: {
+    color: '#000',
+    padding: 10,
+  },
+  searchInput: {
+    padding: 5,
+    borderWidth: 1,
+    fontSize: 16,
+    borderColor: '#6d6e71',
+  },
+  masterPhoto: {
+    height: 36,
+    width: 36,
+    borderRadius: 18,
+  },
+});
