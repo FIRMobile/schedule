@@ -8,7 +8,7 @@ export default connect(
   
   }),
   dispatch => ({
-    onOpenSearch: ()=>{
+    onOpenGroup: ()=>{
       dispatch(mainReducer.openSeach());
       console.log('+');
     }

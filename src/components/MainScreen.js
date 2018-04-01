@@ -10,34 +10,55 @@ import {
   TextInput,
 } from 'react-native';
 import { Field, reduxForm } from 'redux-form'
-import { Toolbar } from 'react-native-material-ui';
-import ToolBar from './MyView/ToolBar'
 import GroupElement from './MyView/GroupElement'
 
 export default class MainScreen extends React.Component {
   render () {
     return (
       <View>
-        <Toolbar
-          centerElement="Поиск группы"
-          searchable={{
-            autoFocus: true,
-            placeholder: 'Search',
-          }}
-        />
-    
+
+        <View style={styles.viewToolBar}>
+          <Text style={styles.ToolBarActionTitle}>Поиск группы</Text>
+          <View style={{flexDirection: 'row', backgroundColor: '#fff', flex: 1, justifyContent: 'space-between',}}>
+            <TextInput
+              style={styles.searchInput}
+              placeholder="3371"
+              underlineColorAndroid="transparent"
+              keyboardType="numeric"
+            />
+            <Image source={require('../images/ic_search.png')} style={styles.icon} resizeMode="contain" />
+          </View>
+        </View>
+
         <ScrollView>
-          <View style={{flexDirection: 'row', flex: 1}}>
-            <View>
-              <Text style={{color: '#000', padding: 5}}>ФКТИ</Text>
+
+          <View style={styles.containerFaculty}>
+            <View style={{ borderRightWidth: 0.5, borderColor: '#05336e' }}>
+              <View style={styles.containerNameFaculty}>
+                <Text style={styles.nameFaculty}>ФКТИ</Text>
+              </View>
             </View>
-            <View style={{flex: 10}}>
-              <GroupElement value={'1111'}/>
-              <GroupElement value={'1234'}/>
+            <View style={{flex: 1}}>
+              <GroupElement value={'1111'} favorite={true}/>
+              <GroupElement value={'1234'} favorite={true}/>
               <GroupElement value={'2341'}/>
               <GroupElement value={'3324'}/>
             </View>
           </View>
+
+          <View style={styles.containerFaculty}>
+            <View style={{ borderRightWidth: 0.5, borderColor: '#05336e' }}>
+              <View style={ styles.containerNameFaculty }>
+                <Text style={styles.nameFaculty}>ЭТФ</Text>
+              </View>
+            </View>
+            <View style={{flex: 1}}>
+              <GroupElement value={'1111'}/>
+              <GroupElement value={'1234'}/>
+              <GroupElement value={'2341'}/>
+            </View>
+          </View>
+
         </ScrollView>
     
       </View>
@@ -46,16 +67,23 @@ export default class MainScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerFaculty: {
     flex: 1,
-    backgroundColor: '#f9fafb',
-    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    height: '100%',
+    backgroundColor: '#fff',
+    borderColor: '#05336e',
+    borderBottomWidth: 1,
   },
-  ToolBarActionTitle: {
-    alignItems: 'center',
-    fontSize: 16,
-    color: '#000',
+  nameFaculty: {
+    color: '#333',
     fontWeight: 'bold',
+  },
+  containerNameFaculty: {
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 72,
   },
   viewToolBar: {
     justifyContent: 'space-between',
@@ -63,37 +91,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: Platform.OS === 'ios' ? 65 : 50,
     paddingTop: Platform.OS === 'ios' ? 15 : 0,
-    paddingLeft: 8,
-    paddingRight: 8,
-    backgroundColor: '#f9fafb',
+    paddingLeft: 16,
+    paddingRight: 16,
+    backgroundColor: '#05336e',
     borderWidth: 0.5,
-    borderColor: '#888',
+    borderColor: '#05336e',
   },
-  ToolBarActionText: {
-    alignItems: 'center',
-    fontSize: 14,
-    color: '#000',
-  },
-  masterItem: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    borderColor: '#888',
-    marginBottom: 2,
-    borderBottomWidth: 0.5,
-  },
-  masterName: {
-    color: '#000',
-    padding: 10,
+  ToolBarActionTitle: {
+    fontSize: 18,
+    color: '#fff',
+    paddingRight: 16,
   },
   searchInput: {
-    padding: 5,
-    borderWidth: 1,
+    padding: 0,
     fontSize: 16,
-    borderColor: '#6d6e71',
+    color: '#000',
+    backgroundColor: '#fff',
+    paddingLeft: 5,
+    flex: 1,
   },
-  masterPhoto: {
-    height: 36,
-    width: 36,
-    borderRadius: 18,
+  icon: {
+    height: 35,
+    width: 35,
+    marginHorizontal: 5,
   },
 });

@@ -2,12 +2,12 @@ import React from 'react'
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ActivityIndicator} from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 
-export default class SearchScreen extends React.Component {
+export default class GroupeScreen extends React.Component {
   render () {
     return (
       <View style={styles.container}>
         <Text onPress={() => this.props.onOpenMain()}>
-          Programm Search
+          Programm group
         </Text>
       </View>
     )

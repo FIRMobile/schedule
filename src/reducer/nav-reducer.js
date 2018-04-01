@@ -4,8 +4,8 @@ import AppNavigator from '../navigators/AppNavigator';
 
 import {
     APP_INIT,
-    MAIN_OPEN_SEARCH,
-    SEARCH_OPEN_MAIN,
+    MAIN_OPEN_GROUP,
+    GROUP_OPEN_MAIN,
 } from '../utils/actions';
 
 
@@ -21,13 +21,13 @@ export default function nav(state = initialNavState, action) {
                 state,
             );
             break;
-        case MAIN_OPEN_SEARCH:
+        case MAIN_OPEN_GROUP:
             nextState = AppNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'Search' }),
+                NavigationActions.navigate({ routeName: 'Group' }),
                 state,
             );
             break;
-        case SEARCH_OPEN_MAIN:
+        case GROUP_OPEN_MAIN:
             nextState = AppNavigator.router.getStateForAction(
                 NavigationActions.navigate({ routeName: 'Main' }),
                 state,

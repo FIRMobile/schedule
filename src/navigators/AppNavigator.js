@@ -1,11 +1,11 @@
 import { StackNavigator } from 'react-navigation';
 import MainScreen from '../containers/MainScreen-container';
-import SearchScreen from '../containers/SearchScreen-container';
+import GroupScreen from '../containers/GroupScreen-container';
 
 const AppNavigator = StackNavigator(
     {
         Main: { screen: MainScreen },
-        Search: { screen: SearchScreen },
+        GroupScreen: { screen: GroupScreen },
     },
     {
         navigationOptions: { header: null },

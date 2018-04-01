@@ -1,5 +1,5 @@
 import {
-  MAIN_OPEN_SEARCH,
+  MAIN_OPEN_GROUP,
 }from '../utils/actions';
 
 export default function main(
@@ -17,7 +17,7 @@ export default function main(
 
   main.openSeach=()=>(dispatch)=>{
     dispatch({
-      type:MAIN_OPEN_SEARCH,
+      type:MAIN_OPEN_GROUP,
     });
   }
   

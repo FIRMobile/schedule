@@ -1,8 +1,8 @@
 import {
-  SEARCH_OPEN_MAIN,
+  GROUP_OPEN_MAIN,
 }from '../utils/actions';
 
-export default function search(
+export default function group(
     state = {
       isLoggedIn: false,
       isReadyBot: false,
@@ -15,8 +15,8 @@ export default function search(
     }
   }
   
-  search.openMain=()=>(dispatch)=>{
+  group.openMain=()=>(dispatch)=>{
     dispatch({
-      type:SEARCH_OPEN_MAIN,
+      type:GROUP_OPEN_MAIN,
     });
   }
