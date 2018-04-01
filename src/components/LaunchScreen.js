@@ -13,10 +13,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#bfd8ff'
+    backgroundColor: '#fff'
   },
   logo: {
-    height: 45,
+    height: 60,
     marginBottom: 25
   }
 })

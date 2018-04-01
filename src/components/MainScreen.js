@@ -16,7 +16,7 @@ export default class MainScreen extends React.Component {
   render () {
     return (
       <View>
-
+         {console.log(this.props)}
         <View style={styles.viewToolBar}>
           <Text style={styles.ToolBarActionTitle}>Поиск группы</Text>
           <View style={{flexDirection: 'row', backgroundColor: '#fff', flex: 1, justifyContent: 'space-between',}}>
@@ -39,10 +39,10 @@ export default class MainScreen extends React.Component {
               </View>
             </View>
             <View style={{flex: 1}}>
-              <GroupElement value={'1111'} favorite={true}/>
-              <GroupElement value={'1234'} favorite={true}/>
-              <GroupElement value={'2341'}/>
-              <GroupElement value={'3324'}/>
+              <GroupElement value={'1111'} favorite={true} onOpenGroup={this.props.onOpenGroup}/>
+              <GroupElement value={'1234'} favorite={true} onOpenGroup={this.props.onOpenGroup}/>
+              <GroupElement value={'2341'} onOpenGroup={this.props.onOpenGroup}/>
+              <GroupElement value={'3324'} onOpenGroup={this.props.onOpenGroup}/>
             </View>
           </View>
 
@@ -53,9 +53,9 @@ export default class MainScreen extends React.Component {
               </View>
             </View>
             <View style={{flex: 1}}>
-              <GroupElement value={'1111'}/>
-              <GroupElement value={'1234'}/>
-              <GroupElement value={'2341'}/>
+              <GroupElement value={'1111'} onOpenGroup={this.props.onOpenGroup}/>
+              <GroupElement value={'1234'} onOpenGroup={this.props.onOpenGroup}/>
+              <GroupElement value={'2341'} onOpenGroup={this.props.onOpenGroup}/>
             </View>
           </View>
 

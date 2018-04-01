@@ -11,8 +11,8 @@ export default class GroupElement extends Component {
   render() {
     return (
         <View style={styles.groupItem}>
-          <TouchableOpacity style={{flex: 1, paddingVertical: 5}}
-          onPress={ () => this.props.onOpenSearch()}>
+          {console.log(this.props)}
+          <TouchableOpacity style={{flex: 1, paddingVertical: 5}} onPress={ () => this.props.onOpenGroup() }>
             <Text style={styles.groupName}>{this.props.value}</Text>
           </TouchableOpacity>
           {this.props.favorite ? 

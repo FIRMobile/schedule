@@ -5,7 +5,7 @@ import GroupScreen from '../containers/GroupScreen-container';
 const AppNavigator = StackNavigator(
     {
         Main: { screen: MainScreen },
-        GroupScreen: { screen: GroupScreen },
+        Group: { screen: GroupScreen },
     },
     {
         navigationOptions: { header: null },
