@@ -7,17 +7,29 @@ import {
   View,
 } from 'react-native';
 
+let click=1;
 export default class GroupElement extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: click,
+    };
+  }
+
   render() {
     return (
         <View style={styles.groupItem}>
-          {console.log(this.props)}
-          <TouchableOpacity style={{flex: 1, paddingVertical: 5}} onPress={ () => this.props.onOpenGroup() }>
+          <TouchableOpacity style={{flex: 1, paddingVertical: 4}} onPress={ () => this.props.onOpenGroup() }>
             <Text style={styles.groupName}>{this.props.value}</Text>
           </TouchableOpacity>
           {this.props.favorite ? 
-            <TouchableOpacity>
-              <Image source={require('../../images/ic_favorite.png')} style={styles.icon} resizeMode="contain" />
+            <TouchableOpacity onPress={() => {this.setState({ ...this.state, value: click += 1 });}}>
+              <Image
+                source={this.state.value % 2 ? require('../../images/ic_favorite.png') : require('../../images/ic_favorite_border.png')}
+                style={styles.icon}
+                resizeMode="contain"
+              />
             </TouchableOpacity>
             : null}
         </View>
@@ -29,7 +41,7 @@ const styles = StyleSheet.create({
   groupName: {
     fontSize: 18,
     color: '#333',
-    paddingHorizontal: 10,
+    paddingHorizontal: 8,
   },
   groupItem: {
     flexDirection: 'row',
@@ -38,8 +50,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   icon: {
-    height: 35,
-    width: 35,
-    marginHorizontal: 16,
+    height: 32,
+    width: 32,
+    marginHorizontal: 14,
   },
 });

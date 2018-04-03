@@ -16,10 +16,9 @@ export default class MainScreen extends React.Component {
   render () {
     return (
       <View>
-         {console.log(this.props)}
         <View style={styles.viewToolBar}>
           <Text style={styles.ToolBarActionTitle}>Поиск группы</Text>
-          <View style={{flexDirection: 'row', backgroundColor: '#fff', flex: 1, justifyContent: 'space-between',}}>
+          <View style={styles.viewTextInput}>
             <TextInput
               style={styles.searchInput}
               placeholder="3371"
@@ -33,22 +32,22 @@ export default class MainScreen extends React.Component {
         <ScrollView>
 
           <View style={styles.containerFaculty}>
-            <View style={{ borderRightWidth: 0.5, borderColor: '#05336e' }}>
+            <View style={styles.containerBlockNameFaculty}>
               <View style={styles.containerNameFaculty}>
                 <Text style={styles.nameFaculty}>ФКТИ</Text>
               </View>
             </View>
             <View style={{flex: 1}}>
               <GroupElement value={'1111'} favorite={true} onOpenGroup={this.props.onOpenGroup}/>
-              <GroupElement value={'1234'} favorite={true} onOpenGroup={this.props.onOpenGroup}/>
+              <GroupElement value={'1234'} onOpenGroup={this.props.onOpenGroup}/>
               <GroupElement value={'2341'} onOpenGroup={this.props.onOpenGroup}/>
               <GroupElement value={'3324'} onOpenGroup={this.props.onOpenGroup}/>
             </View>
           </View>
 
           <View style={styles.containerFaculty}>
-            <View style={{ borderRightWidth: 0.5, borderColor: '#05336e' }}>
-              <View style={ styles.containerNameFaculty }>
+            <View style={styles.containerBlockNameFaculty}>
+              <View style={styles.containerNameFaculty}>
                 <Text style={styles.nameFaculty}>ЭТФ</Text>
               </View>
             </View>
@@ -56,6 +55,7 @@ export default class MainScreen extends React.Component {
               <GroupElement value={'1111'} onOpenGroup={this.props.onOpenGroup}/>
               <GroupElement value={'1234'} onOpenGroup={this.props.onOpenGroup}/>
               <GroupElement value={'2341'} onOpenGroup={this.props.onOpenGroup}/>
+              <GroupElement value={'3324'} onOpenGroup={this.props.onOpenGroup}/>
             </View>
           </View>
 
@@ -73,11 +73,15 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#fff',
     borderColor: '#05336e',
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
   },
   nameFaculty: {
     color: '#333',
     fontWeight: 'bold',
+  },
+  containerBlockNameFaculty: {
+    borderRightWidth: 0.5,
+    borderColor: '#05336e',
   },
   containerNameFaculty: {
     height: 40,
@@ -89,7 +93,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
-    height: Platform.OS === 'ios' ? 65 : 50,
+    height: Platform.OS === 'ios' ? 71 : 56,
     paddingTop: Platform.OS === 'ios' ? 15 : 0,
     paddingLeft: 16,
     paddingRight: 16,
@@ -107,12 +111,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#000',
     backgroundColor: '#fff',
-    paddingLeft: 5,
+    paddingLeft: 4,
     flex: 1,
   },
+  viewTextInput: {
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+    flex: 1,
+    justifyContent: 'space-between',
+  },
   icon: {
-    height: 35,
-    width: 35,
-    marginHorizontal: 5,
+    height: 32,
+    width: 32,
+    marginHorizontal: 4,
   },
 });
